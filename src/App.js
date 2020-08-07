@@ -1,40 +1,41 @@
 import React from 'react';
+import {
+  BrowserRouter as Router, 
+  Route, 
+  Switch, 
+} from 'react-router-dom'
+import SearchPage from './SearchSection/PokeSearch.js'
+import DetailsPage from './DetailPage/DetailPage.js'
 import './App.css';
-import request from 'superagent';
 import Header from './Header.js';
-import Params from './Params.js';
-import PokeList from './PokeList.js';
+
 
 
 class App extends React.Component {
-  state = {
-    search: '',
-    pokeState: [],
-  }
-
-
-  handleSearchClick = async () => {
-    const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?perPage=1000&pokemon=${this.state.search}`);
-
-    this.setState({pokeState: data.body.results});
-  }
-
-  handleSearchInput = (e) => {
-    const inputValue = e.target.value;
-    this.setState({ search: inputValue })
-  }
-
-
   render() {
     return (
       <>
-        <Header/>
-        <Params handleSearchClick={this.handleSearchClick} handleSearchInput={this.handleSearchInput} handleSortClick={this.handleSortClick} />
-        <PokeList pokemonArray={this.state.pokeState}/>
-      </>
-    );
-  }
-
+      <div>
+            <Router>
+                <Header />
+                <Switch>
+                    <Route 
+                        path="/" 
+                        exact
+                        render={(routerProps) => <SearchPage {...routerProps} />} 
+                    />
+                    <Route 
+                        path="/detail/:myPokemonId" 
+                        exact
+                        render={(routerProps) => <DetailsPage {...routerProps} />} 
+                    />
+                </Switch>
+            </Router>
+        </div>
+        </>
+    )
 }
+}
+  
 
 export default App;
