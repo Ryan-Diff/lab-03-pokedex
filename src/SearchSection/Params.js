@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 export default class Params extends Component {
     render() {
         return (
-            <div className="params">
+            <div className="searchDiv">
                 <input onChange={this.props.handleSearchInput} />
                 <p>Search Pokemon By...</p>
                 <select onChange={this.props.handleSelectChange}>

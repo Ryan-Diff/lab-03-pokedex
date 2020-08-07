@@ -3,9 +3,10 @@ import {
   BrowserRouter as Router, 
   Route, 
   Switch, 
+  Link,
 } from 'react-router-dom'
 import SearchPage from './SearchSection/PokeSearch.js'
-import DetailsPage from './DetailPage/DetailPage.js'
+import DetailPage from './DetailPage/DetailPage.js'
 import './App.css';
 import Header from './Header.js';
 
@@ -17,7 +18,12 @@ class App extends React.Component {
       <>
       <div>
             <Router>
-                <Header />
+                <Header>
+                  </Header> 
+                  <nav>
+                    <Link className='navBar' to='/'>Home</Link>
+                    <Link className='navBar' to='/detail'>Details</Link>
+                  </nav>
                 <Switch>
                     <Route 
                         path="/" 
@@ -25,9 +31,9 @@ class App extends React.Component {
                         render={(routerProps) => <SearchPage {...routerProps} />} 
                     />
                     <Route 
-                        path="/detail/:myPokemonId" 
+                        path="/detail/:myPokemonId"
                         exact
-                        render={(routerProps) => <DetailsPage {...routerProps} />} 
+                        render={(routerProps) => <DetailPage {...routerProps} />} 
                     />
                 </Switch>
             </Router>

@@ -26,13 +26,14 @@ export default class PokeSearch extends Component {
     }
 
     render() {
+        console.log(this.state)
         return (
-            <body>
+            <section>
                 <main>
-                <Params handleSearchClick={this.handleSearchClick} handleSearchInput={this.handleSearchInput} handleSortClick={this.handleSortClick} handleSelectChange={this.handleSelectChange}  />
+                <Params handleSearchClick={this.handleSearchClick} handleSearchInput={this.handleSearchInput} handleSortClick={this.handleSortClick} handleSelectChange={this.handleSelect}  />
                 <PokemonList pokemonArray={this.state.pokeState} />
                 </main>
-            </body>
+            </section>
 
            
         )
