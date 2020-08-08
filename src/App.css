@@ -1,12 +1,13 @@
 body {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
   background-color: rgb(206, 198, 206);
 }
 
 main {
   display: flex;
-  width: 80%;
+  width: auto;
+  flex-wrap: nowrap;
+
+  
 }
 
 .header {
@@ -22,7 +23,6 @@ main {
 .pokeList {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
 }
 
 .pokeItem {
@@ -33,5 +33,4 @@ main {
   margin-right: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
-  
 }
