@@ -15,24 +15,20 @@ export default class DetailPage extends Component {
         const { pokemon } = this.state;
         
         return (
-            <section>
+            <main class='details'>
                 {
                     pokemon
-                    && <div>
-                        <h1>{pokemon.pokemon}</h1>
-                        <Link to={`${pokemon.pokedex}`}>Pokemon</Link>
-                        <p>Defense: {pokemon.defense}</p>
-                        <p>Attack: {pokemon.attack}</p>
-                        <p>Type: {pokemon.type_1}, {pokemon.type_2}</p>
-                    </div>
-                }
-                {
-                    pokemon 
-                    && <div>
-                        <img src={pokemon.url_image} alt={pokemon.pokemon} />
+                    && <section className='detailSection'>
+                        <div className='detailDiv'>
+                        <img className='detailImg'src={pokemon.url_image} alt={pokemon.pokemon} />    
+                            <h1>{pokemon.pokemon}</h1>
+                            <p>Defense: {pokemon.defense}</p>
+                            <p>Attack: {pokemon.attack}</p>
+                            <p>Type: {pokemon.type_1}, {pokemon.type_2}</p>  
                         </div>
+                    </section>
                 }
-            </section>
+            </main>
             
         )
     }
